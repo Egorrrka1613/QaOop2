@@ -1,13 +1,8 @@
 import java.util.Random;
 
 public class Reader {
-    Book[] arrBook;
 
-    public Reader(Book[] arrBook) {
-        this.arrBook = arrBook;
-    }
-
-    public Book choiceBook() {
+    public Book choiceBook(Book[] arrBook) {
         int bookNum = getRandomNum(arrBook.length);
         return arrBook[bookNum];
     }
@@ -25,8 +20,6 @@ public class Reader {
     public void ratingBook(Book book) {
         int countLikeBook = 0;
 
-        countLikeBook += book.name.length();
-
         if (book.countOfPage == 0) {
             countLikeBook -= getRandomNum(101);
         } else {
@@ -43,6 +36,13 @@ public class Reader {
             countLikeBook -= getRandomNum(101);
         } else {
             countLikeBook += book.author.length();
+        }
+
+        if (book.name == null) {
+            countLikeBook -= getRandomNum(101);
+            book.name = "Книга без названия";
+        } else {
+            countLikeBook += book.name.length();
         }
 
         System.out.println("Оценка читателем книги " + book.name + ": " + countLikeBook);

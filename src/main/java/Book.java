@@ -27,6 +27,8 @@ public class Book {
         this.name = name;
     }
 
+    public Book() {}
+
     @Override
     public String toString() {
         return "book{" +

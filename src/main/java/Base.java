@@ -1,9 +1,9 @@
-import java.util.Random;
 
 public class Base {
     public static void main(String[] args) {
 
         Book[] bookFromLibrary = {
+                new Book(),
                 new Book("Мастер и Маргарита"),
                 new Book("Евгений Онегин"),
                 new Book("Преступление и наказание"),
@@ -22,9 +22,8 @@ public class Base {
                 new Book("Отцы и дети", "Иван Сергеевич Тургенев", 3, 875)
         };
 
-        Reader reader = new Reader(bookFromLibrary);
+        Reader reader = new Reader();
 
-        reader.readBook(reader.choiceBook());
-
+        reader.readBook(reader.choiceBook(bookFromLibrary));
     }
 }
